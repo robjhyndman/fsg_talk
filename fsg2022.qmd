@@ -1,0 +1,171 @@
+---
+title: "How forecsters can create social good"
+author: Rob J Hyndman
+abstract: Social good is created whenever we make new forecasting methods and resources freely available and usable. That could take the form of open source software and data, open access papers and textbooks, reproducible source files, and so on. I will discuss progress in this area over the last 25 years, and reflect on my own experiences in publishing forecasting papers, books and software. I will discuss the benefits in working openly and publicly from an academic, commercial, and social good perspective.
+time: 30 mins
+format:
+  revealjs:
+    slide-number: "c"
+    preview-links: auto
+    controls: true
+    theme: [default, custom.scss]
+---
+
+# Social good for forecasters
+
+* Software
+* Data sets
+* Textbooks
+* Education resources
+* Research papers
+* Reproducible source files
+
+> Social good is created when we make these resources widely and freely available.
+
+# Software
+
+## Open source R packages
+
+```{r}
+library(tidyverse)
+library(fpp3)
+software <- tribble(
+  ~Month, ~What,
+  "≤ 2002", "Collection of R functions used for consulting projects. Available at [robjhyndman.com](https://robjhyndman.com)",
+  "2003", "`ets`, `thetaf`",
+ "2006", "**forecast v1.0** on CRAN",
+ "2007", "`auto.arima`",
+ "2008", "JSS paper (Hyndman & Khandakar)",
+ "2009","**forecast v2.0** unbundled",
+ "2010", "`arfima`",
+ "2011","`tslm`, `stlf`, `naive`, `snaive`, `tbats`. **forecast v3.0** with Box Cox transformations",
+ "2012", "`nnetar`. Package moved to github. **forecast v4.0**",
+ "2013", "Major speed-up of `ets`",
+ "2014","`tsoutliers`, `tsclean`. **forecast v5.0**",
+ "2015", "New plots. **forecast v6.0**",
+ "2016","ggplot2 graphics, bias adjustment, **forecast v7.0**",
+ "2017", "**forecast v8.0**",
+ "2018", "**tsibble** released on CRAN",
+ "2019","**fable** and **feasts**  released on CRAN",
+ "2022", "**forecast v8.16**, **fable v0.3.1**, **feasts v0.2.2** on CRAN"
+)
+software[1:8,] %>% knitr::kable(col.names=c("",""), align=c("r","l"))
+```
+
+## Open source R packages
+
+```{r}
+software[9:NROW(software),] %>% knitr::kable(col.names=c("",""), align=c("r","l"))
+```
+
+## forecast package downloads
+
+```{r}
+cranlogs::cran_downloads("forecast",from="2013-01-01") %>%
+  as_tibble() %>%
+  mutate(month = yearmonth(date)) %>%
+  group_by(month) %>%
+  summarise(count = sum(count), .groups="drop") %>%
+  as_tsibble(index=month) %>%
+  mutate(Count = count/1e3) %>%
+  # Remove last incomplete month
+  head(-1) %>%
+  autoplot(Count) +
+  labs(y="Monthly downloads (thousands)", x = "Month")
+```
+
+
+## fable package downloads
+
+```{r}
+cranlogs::cran_downloads("fable",from="2019-01-01") %>%
+  as_tibble() %>%
+  mutate(month = yearmonth(date)) %>%
+  group_by(month) %>%
+  summarise(count = sum(count), .groups="drop") %>%
+  as_tsibble(index=month) %>%
+  mutate(Count = count/1e3) %>%
+  # Remove last incomplete month
+  head(-1) %>%
+  autoplot(Count) +
+  labs(y="Monthly downloads (thousands)", x = "Month")
+```
+# Data
+
+## Time series data library
+
+![](figs/tsdl.png)
+
+## Time series data library
+
+<iframe width="100%" height="95%" src="https://pkg.yangzhuoranyang.com/tsdl/"></iframe>
+
+## Other R packages with data
+
+  * **fma**: Data from *Forecasting: methods & applications* (1998)
+  * **expsmooth**: Data from *Forecasting with exponential smoothing: the state space approach* (2008)
+  * **fpp**: Data from *Forecasting: principles & practice* (2013)
+  * **fpp2**: Data from *Forecasting: principles & practice* (2nd ed, 2018)
+  * **fpp3**: Data from *Forecasting: principles & practice* (3rd ed, 2021)
+  * **Mcomp**: Data from M and M3 competitions, with contributed forecasts
+  * **tscompdata**: Data from M, M3, NN3, NN5, NNGC1, tourism and GEFCom2012 competitions
+
+## forecastingdata.org
+
+<iframe width="100%" height="95%" src="https://forecastingdata.org/"></iframe>
+
+# Textbooks
+
+## My first book (1998)
+
+![](figs/mwh3.jpg)
+
+## Online publishing: fpp0
+
+![](figs/fpp_wp.png)
+
+## Online publishing: fpp1
+
+![](figs/fpp_drupal.png)
+
+## Online publishing: fpp2
+
+<iframe width="100%" height="95%" src="https://OTexts.com/fpp2"></iframe>
+
+## Online publishing: fpp3
+
+<iframe width="100%" height="95%" src="https://otexts.com/fpp3/intro.html"></iframe>
+
+## Online publishing: in print
+
+![](figs/fpp_print.png)
+
+\only<3->{\begin{textblock}{6}(6,-.1)\begin{alertblock}{}%
+\fontsize{24}{24}\sf\bfseries OTexts.com/fpp3\end{alertblock}\end{textblock}}
+\only<4-6>{\full{fpp_bookdown}}
+\only<6>{
+  \begin{textblock}{5.4}(7.1,0)
+  \begin{block}{}
+  \includegraphics[width=5.4cm]{fpp_pdf}
+  \end{block}
+  \end{textblock}}
+\only<5-6>{\begin{textblock}{6.2}(.5,6.9)
+  \begin{alertblock}{Bookdown theme}
+  \begin{itemize}
+  \item Simple css styling
+  \item Complicated LaTeX styling
+  \end{itemize}
+  \end{alertblock}
+ \end{textblock}}
+
+# Education resources
+
+# Research papers
+
+# Reproducible source files
+
+# Why do this?
+
+Packages help citations
+
+Reproducibility helps future you, other researchers, citations, etc.
