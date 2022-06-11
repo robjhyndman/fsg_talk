@@ -1,6 +1,7 @@
 ---
-title: "How forecsters can create social good"
+title: "Creating social good for&nbsp;forecasters"
 author: Rob J Hyndman
+institute: "<img src='figs/monash_bw.png' width='25%'>"
 abstract: Social good is created whenever we make new forecasting methods and resources freely available and usable. That could take the form of open source software and data, open access papers and textbooks, reproducible source files, and so on. I will discuss progress in this area over the last 25 years, and reflect on my own experiences in publishing forecasting papers, books and software. I will discuss the benefits in working openly and publicly from an academic, commercial, and social good perspective.
 time: 30 mins
 format:
@@ -13,8 +14,8 @@ format:
 
 # Social good for forecasters
 
-* Software
 * Data sets
+* Software
 * Textbooks
 * Education resources
 * Research papers
@@ -22,17 +23,72 @@ format:
 
 > Social good is created when we make these resources widely and freely available.
 
+# Data sets
+
+```{css}
+/* Adding here rather than in scss file to override an !important flag */
+div.callout-note {
+  border-left-color: #0063a7 !important;
+}
+```
+
+:::{.callout-note icon=false}
+## Large, open-access data sets:
+
+* help forecasters test new methods
+* allow easier empirical comparisons
+* help generate interesting student exercises
+:::
+
+## Time series data library (1996)
+
+![](figs/tsdl0.png)
+
+## Time series data library (2012)
+
+![](figs/tsdl.png)
+
+## Time series data library (2022)
+
+<iframe width="100%" height="95%" src="https://pkg.yangzhuoranyang.com/tsdl/"></iframe>
+
+## Other R packages with data
+
+  * **fma**: Data from *Forecasting: methods & applications* (1998)
+  * **expsmooth**: Data from *Forecasting with exponential smoothing: the state space approach* (2008)
+  * **fpp**: Data from *Forecasting: principles & practice* (2013)
+  * **fpp2**: Data from *Forecasting: principles & practice* (2nd ed, 2018)
+  * **fpp3**: Data from *Forecasting: principles & practice* (3rd ed, 2021)
+  * **Mcomp**: Data from M and M3 competitions, with contributed forecasts
+  * **tscompdata**: Data from M, M3, NN3, NN5, NNGC1, tourism and GEFCom2012 competitions
+
+## [forecastingdata.org](https://forecastingdata.org)
+
+<iframe width="100%" height="95%" src="https://forecastingdata.org/"></iframe>
+
 # Software
 
-## Open source R packages
+:::{.callout-note icon=false}
+## Open source software:
+
+* makes state-of-the-art forecasting methods available to everyone
+* ensures new forecasting methods can be easily used
+* influences the way people think about forecasting
+
+:::
+
+## Open source R packages {.smaller}
 
 ```{r}
 library(tidyverse)
 library(fpp3)
+library(gt)
 software <- tribble(
   ~Month, ~What,
-  "≤ 2002", "Collection of R functions used for consulting projects. Available at [robjhyndman.com](https://robjhyndman.com)",
-  "2003", "`ets`, `thetaf`",
+  "≤ 2002", "Collection of R functions used for consulting projects, available at [robjhyndman.com](https://robjhyndman.com)",
+  "2003", "`ets`, `thetaf`. **forecast v0.xx** available at [robjhyndman.com](https://robjhyndman.com)",
+  "2004","",
+  "2005","",
  "2006", "**forecast v1.0** on CRAN",
  "2007", "`auto.arima`",
  "2008", "JSS paper (Hyndman & Khandakar)",
@@ -47,15 +103,18 @@ software <- tribble(
  "2017", "**forecast v8.0**",
  "2018", "**tsibble** released on CRAN",
  "2019","**fable** and **feasts**  released on CRAN",
+ "2020","",
+ "2021","[FPP3 textbook](https://OTexts.com/fpp3) using **fable** published",
  "2022", "**forecast v8.16**, **fable v0.3.1**, **feasts v0.2.2** on CRAN"
 )
-software[1:8,] %>% knitr::kable(col.names=c("",""), align=c("r","l"))
-```
-
-## Open source R packages
-
-```{r}
-software[9:NROW(software),] %>% knitr::kable(col.names=c("",""), align=c("r","l"))
+gt(software) %>%
+  fmt_markdown(columns = What) %>%
+  tab_options(
+    column_labels.hidden = TRUE,
+    table.font.size = 24,
+    container.height = 580,
+    container.overflow.y = TRUE
+  )
 ```
 
 ## forecast package downloads
@@ -90,31 +149,17 @@ cranlogs::cran_downloads("fable",from="2019-01-01") %>%
   autoplot(Count) +
   labs(y="Monthly downloads (thousands)", x = "Month")
 ```
-# Data
 
-## Time series data library
-
-![](figs/tsdl.png)
-
-## Time series data library
-
-<iframe width="100%" height="95%" src="https://pkg.yangzhuoranyang.com/tsdl/"></iframe>
-
-## Other R packages with data
-
-  * **fma**: Data from *Forecasting: methods & applications* (1998)
-  * **expsmooth**: Data from *Forecasting with exponential smoothing: the state space approach* (2008)
-  * **fpp**: Data from *Forecasting: principles & practice* (2013)
-  * **fpp2**: Data from *Forecasting: principles & practice* (2nd ed, 2018)
-  * **fpp3**: Data from *Forecasting: principles & practice* (3rd ed, 2021)
-  * **Mcomp**: Data from M and M3 competitions, with contributed forecasts
-  * **tscompdata**: Data from M, M3, NN3, NN5, NNGC1, tourism and GEFCom2012 competitions
-
-## forecastingdata.org
-
-<iframe width="100%" height="95%" src="https://forecastingdata.org/"></iframe>
 
 # Textbooks
+
+:::{.callout-note icon=false}
+## Open-access textbooks:
+
+* makes high quality forecasting materials available to everyone
+* ensures new forecasting methods can be easily used
+* influences the way people think about forecasting
+:::
 
 ## My first book (1998)
 
@@ -160,9 +205,25 @@ cranlogs::cran_downloads("fable",from="2019-01-01") %>%
 
 # Education resources
 
+
+:::{.callout-note icon=false}
+## Open-access education resources
+
+:::
+
 # Research papers
 
+:::{.callout-note icon=false}
+## Open-access research papers
+:::
+
+
 # Reproducible source files
+
+:::{.callout-note icon=false}
+## Reproducible source files
+
+:::
 
 # Why do this?
 

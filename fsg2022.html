@@ -4,7 +4,7 @@
   <meta name="generator" content="quarto-0.9.330">
 
   <meta name="author" content="Rob J Hyndman">
-  <title>How forecasters can create social good</title>
+  <title>Creating social good for&nbsp;forecasters</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -320,15 +320,16 @@
     <div class="slides">
 
 <section id="title-slide" class="center">
-  <h1 class="title">How forecasters can create social good</h1>
+  <h1 class="title">Creating social good for&nbsp;forecasters</h1>
   <p class="author">Rob J Hyndman</p>
+  <p class="institute"><img src="figs/monash_bw.png" width="25%"></p>
 </section>
 
 <section id="social-good-for-forecasters" class="title-slide slide level1 center">
 <h1>Social good for forecasters</h1>
 <ul>
-<li>Software</li>
 <li>Data sets</li>
+<li>Software</li>
 <li>Textbooks</li>
 <li>Education resources</li>
 <li>Research papers</li>
@@ -340,119 +341,41 @@
 </section>
 
 <section>
-<section id="software" class="title-slide slide level1 center">
-<h1>Software</h1>
-
-</section>
-<section id="open-source-r-packages" class="slide level2">
-<h2>Open source R packages</h2>
+<section id="data-sets" class="title-slide slide level1 center">
+<h1>Data sets</h1>
 <div class="cell">
-<div class="cell-output-display">
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">≤ 2002</td>
-<td style="text-align: left;">Collection of R functions used for consulting projects. Available at <a href="https://robjhyndman.com">robjhyndman.com</a></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2003</td>
-<td style="text-align: left;"><code>ets</code>, <code>thetaf</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2006</td>
-<td style="text-align: left;"><strong>forecast v1.0</strong> on CRAN</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2007</td>
-<td style="text-align: left;"><code>auto.arima</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2008</td>
-<td style="text-align: left;">JSS paper (Hyndman &amp; Khandakar)</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2009</td>
-<td style="text-align: left;"><strong>forecast v2.0</strong> unbundled</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2010</td>
-<td style="text-align: left;"><code>arfima</code></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2011</td>
-<td style="text-align: left;"><code>tslm</code>, <code>stlf</code>, <code>naive</code>, <code>snaive</code>, <code>tbats</code>. <strong>forecast v3.0</strong> with Box Cox transformations</td>
-</tr>
-</tbody>
-</table>
+<style type="text/css">
+/* Adding here rather than in scss file to override an !important flag */
+div.callout-note {
+  border-left-color: #0063a7 !important;
+}
+</style>
+</div>
+<div class="callout callout-note no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Large, open-access data sets:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>help forecasters test new methods</li>
+<li>allow easier empirical comparisons</li>
+<li>help generate interesting student exercises</li>
+</ul>
+</div>
 </div>
 </div>
 </section>
-<section id="open-source-r-packages-1" class="slide level2">
-<h2>Open source R packages</h2>
-<div class="cell">
-<div class="cell-output-display">
-<table>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">2012</td>
-<td style="text-align: left;"><code>nnetar</code>. Package moved to github. <strong>forecast v4.0</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2013</td>
-<td style="text-align: left;">Major speed-up of <code>ets</code></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2014</td>
-<td style="text-align: left;"><code>tsoutliers</code>, <code>tsclean</code>. <strong>forecast v5.0</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2015</td>
-<td style="text-align: left;">New plots. <strong>forecast v6.0</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2016</td>
-<td style="text-align: left;">ggplot2 graphics, bias adjustment, <strong>forecast v7.0</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2017</td>
-<td style="text-align: left;"><strong>forecast v8.0</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2018</td>
-<td style="text-align: left;"><strong>tsibble</strong> released on CRAN</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2019</td>
-<td style="text-align: left;"><strong>fable</strong> and <strong>feasts</strong> released on CRAN</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2022</td>
-<td style="text-align: left;"><strong>forecast v8.16</strong>, <strong>fable v0.3.1</strong>, <strong>feasts v0.2.2</strong> on CRAN</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</section>
-<section id="forecast-package-downloads" class="slide level2">
-<h2>forecast package downloads</h2>
+<section id="time-series-data-library-1996" class="slide level2">
+<h2>Time series data library (1996)</h2>
 
-<img data-src="fsg2022_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
-<section id="fable-package-downloads" class="slide level2">
-<h2>fable package downloads</h2>
-
-<img data-src="fsg2022_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section></section>
-<section>
-<section id="data" class="title-slide slide level1 center">
-<h1>Data</h1>
-
-</section>
-<section id="time-series-data-library" class="slide level2">
-<h2>Time series data library</h2>
+<img data-src="figs/tsdl0.png" class="r-stretch"></section>
+<section id="time-series-data-library-2012" class="slide level2">
+<h2>Time series data library (2012)</h2>
 
 <img data-src="figs/tsdl.png" class="r-stretch"></section>
-<section id="time-series-data-library-1" class="slide level2">
-<h2>Time series data library</h2>
+<section id="time-series-data-library-2022" class="slide level2">
+<h2>Time series data library (2022)</h2>
 <iframe width="100%" height="95%" src="https://pkg.yangzhuoranyang.com/tsdl/">
 </iframe>
 </section>
@@ -469,14 +392,541 @@
 </ul>
 </section>
 <section id="forecastingdata.org" class="slide level2">
-<h2>forecastingdata.org</h2>
+<h2><a href="https://forecastingdata.org">forecastingdata.org</a></h2>
 <iframe width="100%" height="95%" src="https://forecastingdata.org/">
 </iframe>
 </section></section>
 <section>
+<section id="software" class="title-slide slide level1 center">
+<h1>Software</h1>
+<div class="callout callout-note no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Open source software:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>makes state-of-the-art forecasting methods available to everyone</li>
+<li>ensures new forecasting methods can be easily used</li>
+<li>influences the way people think about forecasting</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="open-source-r-packages" class="slide level2 smaller">
+<h2>Open source R packages</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div id="ibhnfcwlwr" style="overflow-x:auto;overflow-y:auto;width:auto;height:580px;">
+<style>html {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
+}
+
+#ibhnfcwlwr .gt_table {
+  display: table;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 24px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ibhnfcwlwr .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 0;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ibhnfcwlwr .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ibhnfcwlwr .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ibhnfcwlwr .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ibhnfcwlwr .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ibhnfcwlwr .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ibhnfcwlwr .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ibhnfcwlwr .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ibhnfcwlwr .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ibhnfcwlwr .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ibhnfcwlwr .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ibhnfcwlwr .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ibhnfcwlwr .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ibhnfcwlwr .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ibhnfcwlwr .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ibhnfcwlwr .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ibhnfcwlwr .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ibhnfcwlwr .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ibhnfcwlwr .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ibhnfcwlwr .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ibhnfcwlwr .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ibhnfcwlwr .gt_left {
+  text-align: left;
+}
+
+#ibhnfcwlwr .gt_center {
+  text-align: center;
+}
+
+#ibhnfcwlwr .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ibhnfcwlwr .gt_font_normal {
+  font-weight: normal;
+}
+
+#ibhnfcwlwr .gt_font_bold {
+  font-weight: bold;
+}
+
+#ibhnfcwlwr .gt_font_italic {
+  font-style: italic;
+}
+
+#ibhnfcwlwr .gt_super {
+  font-size: 65%;
+}
+
+#ibhnfcwlwr .gt_two_val_uncert {
+  display: inline-block;
+  line-height: 1em;
+  text-align: right;
+  font-size: 60%;
+  vertical-align: -0.25em;
+  margin-left: 0.1em;
+}
+
+#ibhnfcwlwr .gt_footnote_marks {
+  font-style: italic;
+  font-weight: normal;
+  font-size: 75%;
+  vertical-align: 0.4em;
+}
+
+#ibhnfcwlwr .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ibhnfcwlwr .gt_slash_mark {
+  font-size: 0.7em;
+  line-height: 0.7em;
+  vertical-align: 0.15em;
+}
+
+#ibhnfcwlwr .gt_fraction_numerator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: 0.45em;
+}
+
+#ibhnfcwlwr .gt_fraction_denominator {
+  font-size: 0.6em;
+  line-height: 0.6em;
+  vertical-align: -0.05em;
+}
+</style>
+<table class="gt_table">
+  
+  
+  <tbody class="gt_table_body">
+    <tr><td class="gt_row gt_left">≤ 2002</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p>Collection of R functions used for consulting projects, available at <a href="https://robjhyndman.com">robjhyndman.com</a></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2003</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><code>ets</code>, <code>thetaf</code>. <strong>forecast v0.xx</strong> available at <a href="https://robjhyndman.com">robjhyndman.com</a></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2004</td>
+<td class="gt_row gt_left"><div class="gt_from_md"></div></td></tr>
+    <tr><td class="gt_row gt_left">2005</td>
+<td class="gt_row gt_left"><div class="gt_from_md"></div></td></tr>
+    <tr><td class="gt_row gt_left">2006</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><strong>forecast v1.0</strong> on CRAN</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2007</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><code>auto.arima</code></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2008</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p>JSS paper (Hyndman &amp; Khandakar)</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2009</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><strong>forecast v2.0</strong> unbundled</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2010</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><code>arfima</code></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2011</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><code>tslm</code>, <code>stlf</code>, <code>naive</code>, <code>snaive</code>, <code>tbats</code>. <strong>forecast v3.0</strong> with Box Cox transformations</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2012</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><code>nnetar</code>. Package moved to github. <strong>forecast v4.0</strong></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2013</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p>Major speed-up of <code>ets</code></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2014</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><code>tsoutliers</code>, <code>tsclean</code>. <strong>forecast v5.0</strong></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2015</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p>New plots. <strong>forecast v6.0</strong></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2016</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p>ggplot2 graphics, bias adjustment, <strong>forecast v7.0</strong></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2017</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><strong>forecast v8.0</strong></p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2018</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><strong>tsibble</strong> released on CRAN</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2019</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><strong>fable</strong> and <strong>feasts</strong>  released on CRAN</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2020</td>
+<td class="gt_row gt_left"><div class="gt_from_md"></div></td></tr>
+    <tr><td class="gt_row gt_left">2021</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><a href="https://OTexts.com/fpp3">FPP3 textbook</a> using <strong>fable</strong> published</p>
+</div></td></tr>
+    <tr><td class="gt_row gt_left">2022</td>
+<td class="gt_row gt_left"><div class="gt_from_md"><p><strong>forecast v8.16</strong>, <strong>fable v0.3.1</strong>, <strong>feasts v0.2.2</strong> on CRAN</p>
+</div></td></tr>
+  </tbody>
+  
+  
+</table>
+</div>
+</div>
+</div>
+</section>
+<section id="forecast-package-downloads" class="slide level2">
+<h2>forecast package downloads</h2>
+
+<img data-src="fsg2022_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="fable-package-downloads" class="slide level2">
+<h2>fable package downloads</h2>
+
+<img data-src="fsg2022_files/figure-revealjs/unnamed-chunk-4-1.png" width="960" class="r-stretch"></section></section>
+<section>
 <section id="textbooks" class="title-slide slide level1 center">
 <h1>Textbooks</h1>
-
+<div class="callout callout-note no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Open-access textbooks:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li>makes high quality forecasting materials available to everyone</li>
+<li>ensures new forecasting methods can be easily used</li>
+<li>influences the way people think about forecasting</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="my-first-book-1998" class="slide level2">
 <h2>My first book (1998)</h2>
@@ -506,17 +956,44 @@
 <img data-src="figs/fpp_print.png" class="r-stretch"></section></section>
 <section id="education-resources" class="title-slide slide level1 center">
 <h1>Education resources</h1>
+<div class="callout callout-note no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Open-access education resources</strong></p>
+</div>
+<div class="callout-content">
 
+</div>
+</div>
+</div>
 </section>
 
 <section id="research-papers" class="title-slide slide level1 center">
 <h1>Research papers</h1>
+<div class="callout callout-note no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Open-access research papers</strong></p>
+</div>
+<div class="callout-content">
 
+</div>
+</div>
+</div>
 </section>
 
 <section id="reproducible-source-files" class="title-slide slide level1 center">
 <h1>Reproducible source files</h1>
+<div class="callout callout-note no-icon callout-captioned callout-style-default">
+<div class="callout-body">
+<div class="callout-caption">
+<p><strong>Reproducible source files</strong></p>
+</div>
+<div class="callout-content">
 
+</div>
+</div>
+</div>
 </section>
 
 <section id="why-do-this" class="title-slide slide level1 center">
