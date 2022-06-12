@@ -19,9 +19,12 @@ $presentation-heading-color: #0063a7 !default;
 	-webkit-border-radius: 10px;
 }
 
-// Callout notes background to caption
+// Callout backgrounds
 div.callout-note.callout-style-default .callout-caption {
   background-color: #a1b8c8 !important;
+}
+div.callout-warning.callout-style-default .callout-caption {
+  background-color: #c8ada1 !important;
 }
 
 // Remove ugly lines in tables

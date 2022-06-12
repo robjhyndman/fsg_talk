@@ -14,12 +14,12 @@ format:
 
 ## Social good for forecasters
 
-* Data sets
-* Software
-* Textbooks
-* Education resources
-* Research papers
-* Reproducible source files
+-   Data sets
+-   Software
+-   Textbooks
+-   Education resources
+-   Research papers
+-   Reproducible source files
 
 > Social good is created when we make these resources widely and freely available.
 
@@ -28,6 +28,16 @@ format:
 library(tidyverse)
 library(fpp3)
 library(gt)
+library(fontawesome)
+# Colours to be viridis for continuous scales and Okabe for discrete scales
+options(
+  digits = 4,
+  ggplot2.continuous.colour="viridis",
+  ggplot2.continuous.fill = "viridis",
+  ggplot2.discrete.colour = c("#009E73", "#E69F00", "#56B4E9", "#F0E442","#CC79A7" ),
+  ggplot2.discrete.fill = c("#009E73", "#E69F00", "#56B4E9", "#F0E442","#CC79A7" )
+)
+ggplot2::theme_set(theme_get() + theme(text = element_text(family = 'Carlito')))
 ```
 
 ```{css}
@@ -35,16 +45,19 @@ library(gt)
 div.callout-note {
   border-left-color: #0063a7 !important;
 }
+div.callout-warning {
+  border-left-color: #c14b14 !important;
+}
 ```
 
 # Data sets
 
-:::{.callout-note icon=false}
+::: {.callout-note icon="false"}
 ## Large, open-access data sets:
 
-* help forecasters test new methods
-* allow easier empirical comparisons
-* help generate interesting student exercises
+-   help forecasters test new methods
+-   allow easier empirical comparisons
+-   help generate interesting student exercises
 :::
 
 ## Time series data library (1996)
@@ -53,11 +66,13 @@ div.callout-note {
 
 ## Time series data library (2012) {.nostretch}
 
-<img src="figs/tsdl.png" width=80%">
+<img src="figs/tsdl.png" width="80%&quot;"/>
 
 ## Time series data library (2022)
 
-<iframe width="100%" height="95%" src="https://pkg.yangzhuoranyang.com/tsdl/"></iframe>
+<iframe width="100%" height="95%" src="https://pkg.yangzhuoranyang.com/tsdl/">
+
+</iframe>
 
 ## Other R packages with data
 
@@ -86,17 +101,18 @@ tribble(
 
 ## forecastingdata.org
 
-<iframe width="100%" height="95%" src="https://forecastingdata.org/"></iframe>
+<iframe width="100%" height="95%" src="https://forecastingdata.org/">
+
+</iframe>
 
 # Software
 
-:::{.callout-note icon=false}
+::: {.callout-note icon="false"}
 ## Open source software:
 
-* makes state-of-the-art forecasting methods available to everyone
-* ensures new forecasting methods can be easily used
-* influences the way people think about forecasting
-
+-   makes state-of-the-art forecasting methods available to everyone
+-   ensures new forecasting methods can be easily used
+-   influences the way people think about forecasting
 :::
 
 ## Open source R packages {.smaller}
@@ -136,116 +152,349 @@ tribble(
   )
 ```
 
-## forecast package downloads
+## R package downloads
 
 ```{r}
-cranlogs::cran_downloads("forecast",from="2013-01-01") %>%
+downloads <- cranlogs::cran_downloads(c("forecast","fable"), from="2013-01-01") %>%
   as_tibble() %>%
   mutate(month = yearmonth(date)) %>%
-  group_by(month) %>%
+  group_by(month, package) %>%
   summarise(count = sum(count), .groups="drop") %>%
-  as_tsibble(index=month) %>%
-  mutate(Count = count/1e3) %>%
+  as_tsibble(index=month, key=package) %>%
+  mutate(
+    Count = if_else(package=="fable" & year(month) < 2019, NA_real_, count/1e3)
+  ) %>%
   # Remove last incomplete month
-  head(-1) %>%
-  autoplot(Count) +
-  labs(y="Monthly downloads (thousands)", x = "Month")
-```
+  filter(month < max(month)) %>%
+  mutate(package = factor(package, levels=c("forecast","fable")))
 
-
-## fable package downloads
-
-```{r}
-cranlogs::cran_downloads("fable",from="2019-01-01") %>%
+downloads %>%
   as_tibble() %>%
-  mutate(month = yearmonth(date)) %>%
-  group_by(month) %>%
-  summarise(count = sum(count), .groups="drop") %>%
-  as_tsibble(index=month) %>%
-  mutate(Count = count/1e3) %>%
-  # Remove last incomplete month
-  head(-1) %>%
-  autoplot(Count) +
+  ggplot(aes(x=month, y=Count)) +
+  geom_line(aes(col=package), size=1) +
+  facet_grid(rows = vars(package), scales = "free_y") +
+  guides(col="none") +
   labs(y="Monthly downloads (thousands)", x = "Month")
 ```
-
 
 # Textbooks
 
-:::{.callout-note icon=false}
+::: {.callout-note icon="false"}
 ## Open-access textbooks:
 
-* makes high quality forecasting materials available to everyone
-* ensures new forecasting methods can be easily used
-* influences the way people think about forecasting
+-   makes high quality forecasting materials available to everyone
+-   ensures new forecasting methods can be easily used
+-   influences the way people think about forecasting
 :::
 
 ## My first book (1998)
 
 ![](figs/mwh3.png)
 
-## Online publishing: fpp0
+## Online publishing: FPP0
 
 ![](figs/fpp_wp.png)
 
-## Online publishing: fpp1
+## Online publishing: FPP1
 
 ![](figs/fpp_drupal.png)
 
-## Online publishing: fpp2
+## Online publishing: [OTexts.com/fpp2](https://OTexts.com/fpp2)
 
-<iframe width="100%" height="95%" src="https://OTexts.com/fpp2"></iframe>
+<iframe width="100%" height="95%" src="https://OTexts.com/fpp2">
 
-## Online publishing: fpp3
+</iframe>
 
-<iframe width="100%" height="95%" src="https://otexts.com/fpp3/intro.html"></iframe>
+## Online publishing: [OTexts.com/fpp3](https://OTexts.com/fpp3)
+
+<iframe width="100%" height="95%" src="https://otexts.com/fpp3/intro.html">
+
+</iframe>
+
+## FPP monthly readers
+
+:::: {.columns}
+
+::: {.column width="70%"}
+```{r}
+#| fig.height: 8
+
+# Google Analytics data for OTexts
+pageviews <- here::here("Analytics OTexts.org Audience Overview 20120101-20220531.csv") %>%
+  read_csv(skip = 6) %>%
+  filter(!is.na(`Day Index`)) %>%
+  mutate(Date = dmy(`Day Index`)) %>%
+  select(Date, `Pageviews`, `New Users`) %>%
+  janitor::clean_names()
+
+pageviews %>%
+  mutate(Month = yearmonth(date)) %>%
+  group_by(Month) %>%
+  summarise(
+    pageviews = sum(pageviews),
+    new_users = sum(new_users)
+  ) %>%
+  ungroup() %>%
+  pivot_longer(!Month, names_to = "variable", values_to = "count") %>%
+  mutate(variable = factor(variable,
+                           levels = c("pageviews", "new_users"),
+                           labels = c("Page views", "New users"))
+  ) %>%
+  as_tsibble(index = Month, key = variable) %>%
+  filter(
+     Month >= yearmonth("2013 Aug")#,
+  #   Month < yearmonth("2021 Aug")
+  ) %>%
+  autoplot(count, size=1.5) +
+  facet_wrap(vars(variable), scales = "free_y", ncol = 1) +
+  theme(legend.position = "none") +
+  labs(x = "Year", y = "") +
+  scale_y_continuous(labels = scales::label_number(suffix = "K", scale = 1e-3))
+
+ave_pageviews <- pageviews %>%
+  tail(365) %>%
+  summarise(
+    pageviews = mean(pageviews),
+    new_users = mean(new_users)
+  )
+
+users <- here::here("Analytics OTexts.org Location 20120101-20220531.csv") %>%
+  read_csv(skip = 5) %>%
+  filter(!is.na(Country))
+```
+:::
+
+::: {.column width="30%"}
+
+::: {.callout-warning icon="false"}
+# In past year:
+
+-   `r round(ave_pageviews$pageviews/1e3)`K page views per day
+-   `r round(ave_pageviews$new_users/1e3)`K new users per day
+:::
+
+::: {.callout-warning icon="false"}
+# To date:
+
+-   `r round(sum(pageviews$pageviews)/1e6,1)` million page views
+-   `r round(sum(pageviews$new_users)/1e6,1)` million users
+-   from `r NROW(users)` countries
+:::
+
+:::
+
+::::
+
+
+## FPP translations
+
+:::: {.columns}
+
+::: {.column width="70%"}
+
+![](figs/fppjp.png)
+
+:::
+
+::: {.column width="30%"}
+
+::: {.callout-note icon="false"}
+# Translations:
+
+- FPP2 available in **Chinese** and **Korean**
+- FPP3 available in **Japanese**, **Italian**, **Greek**
+- FPP3 translations underway in **French**, **Spanish**, **Russian**, **Portuguese**
+:::
+
+:::
+
+::::
 
 ## Online publishing: in print
 
 ![](figs/fpp_print.png)
 
-\only<3->{\begin{textblock}{6}(6,-.1)\begin{alertblock}{}%
-\fontsize{24}{24}\sf\bfseries OTexts.com/fpp3\end{alertblock}\end{textblock}}
-\only<4-6>{\full{fpp_bookdown}}
-\only<6>{
-  \begin{textblock}{5.4}(7.1,0)
-  \begin{block}{}
-  \includegraphics[width=5.4cm]{fpp_pdf}
-  \end{block}
-  \end{textblock}}
-\only<5-6>{\begin{textblock}{6.2}(.5,6.9)
-  \begin{alertblock}{Bookdown theme}
-  \begin{itemize}
-  \item Simple css styling
-  \item Complicated LaTeX styling
-  \end{itemize}
-  \end{alertblock}
- \end{textblock}}
-
 # Education resources
 
-
-:::{.callout-note icon=false}
+::: {.callout-note icon="false"}
 ## Open-access education resources
 
+-   Improves forecasting education everywhere
+-   Equips non-experts to teach forecasting
 :::
+
+## FPP exercise solutions
+
+```{r}
+# Read FPP form data
+forms <- read_csv(here::here("FPP solutions request responses - Form responses 1.csv")) %>%
+  # Simpler variable names
+  rename(
+    Country = "Country where you work",
+    Name = "Your name",
+    Email = "Email address",
+    Uni = "Teaching institution where you work",
+    Website = "Link to your personal university web page or Google scholar page",
+    Subject = "Name of subject in which you teach forecasting",
+    Code = "Subject code"
+  ) %>%
+  # Remove duplicates
+  distinct(Email, .keep_all = TRUE) %>%
+  # Clean up data
+  mutate(
+    Timestamp = as.Date(Timestamp),
+    Country = str_to_title(Country),
+    Country = recode(Country,
+      `Algérie` = "Algeria",
+      `Australia (Teaching Online Remotely)` = "Australia",
+      Brasil = "Brazil",
+      `Moncton (Nb), Canada` = "Canada",
+      Beijing = "China",
+      `Wuhan, China` = "China",
+      `La Réunion (France)` = "France",
+      Deutschland = "Germany",
+      Guinée = "Guinea",
+      `Hong Kong (China)` = "Hong Kong",
+      `Hong Kong Sar` = "Hong Kong",
+      Insofe = "India",
+      Belfast = "Ireland",
+      Italia = "Italy",
+      `Parma (Italy)` = "Italy",
+      Kazahkstan = "Kazakhstan",
+      `Usa, Lithuania` = "Lithuania",
+      `México` = "Mexico",
+      `The Netherlands` = "Netherlands",
+      `Norway And Sweden` = "Norway",
+      `Perú` = "Peru",
+      Lima = "Peru",
+      Polska = "Poland",
+      `Russian Federation` = "Russia",
+      `Россия` = "Russia",
+      Korea = "South Korea",
+      `Korea (South)` = "South Korea",
+      `Korea, Republic of` = "South Korea",
+      `Korea, Republic Of` = "South Korea",
+      `Republic of Korea` = "South Korea",
+      `Republic Of Korea` = "South Korea",
+      `S. Korea` = "South Korea",
+      `South of Korea` = "South Korea",
+      `South Of Korea` = "South Korea",
+      `España` = "Spain",
+      Srilanka = "Sri Lanka",
+      Schweiz = "Switzerland",
+      `Roc Taiwan` = "Taiwan",
+      `Turkley` = "Turkey",
+      `ho chí minh` = "Vietnam",
+      `Ho Chí Minh` = "Vietnam",
+      `Thành Pho Hcm` = "Vietnam",
+      `Thành Pho Ho Chí Minh` = "Vietnam",
+      `Viet Nam` = "Vietnam",
+      `Viet Nam` = "Vietnam",
+      `베트남` = "Vietnam",
+      `Uae` = "United Arab Emirates",
+      England = "United Kingdom",
+      Uk = "United Kingdom",
+      `United States Of America (U.s.a.)` = "United States",
+      `United States Of America` = "United States",
+      `Usa/Costa Rica` = "United States",
+      U.s.a. = "United States",
+      Us = "United States",
+      Usa = "United States"
+    ),
+    Uni = recode(Uni,
+      `Uni of Sydney` = "The University of Sydney",
+      `University of Sydney` = "The University of Sydney",
+      `I am self studying, I would like to check my answers.` = "Other",
+      `Evolution Health Pty Ltd` = "Other",
+      `Data Analyst/Scientist at Monash College` = "Monash College",
+      `RMIT University` = "RMIT",
+      `RMIT Melb campus` = "RMIT",
+      `University of California Berkeley` = "Other",
+      `Curtin and WA Treasury` = "Curtin University"
+    )
+  )
+
+country_totals <- forms %>%
+  group_by(Country) %>%
+  summarise(counts = n()) %>%
+  arrange(desc(counts), Country)
+```
+
+Requested by `r NROW(forms)` instructors from `r NROW(country_totals)` countries
+
+```{r}
+country_totals %>%
+  head(20) %>%
+  ggplot(aes(x=counts, y=reorder(Country,counts))) +
+  geom_bar(stat='identity', fill="#c14b14") +
+  labs(y = "Country", x = "Number of instructors")
+```
+
+## Slides for a forecasting course
+
+![](figs/slides1.png)
+
+![](figs/slides2.png)
 
 # Research papers
 
-:::{.callout-note icon=false}
+::: {.callout-note icon="false"}
 ## Open-access research papers
+
+-   Makes latest research available to everyone
+-   Research ideas available earlier
+-   Allows for informal peer-review
 :::
 
+## Open-access research papers
+
+* Bypass the journal pay-walls
+* Every journal allows pre-prints to continue to exist online after a paper is accepted
+* It *reduces* the risk of someone beating you -- there is a public paper with a date on it.
+* Most government funding agencies now require pre-prints to be made available.
+* It increases your citations
+* Many online repositories available: arXiv, RePEc, SSRN, ...
+
+## NEP-FOR: weekly report
+
+![](figs/nepfor.png)
 
 # Reproducible source files
 
-:::{.callout-note icon=false}
+::: {.callout-note icon="false"}
 ## Reproducible source files
 
+* Share good practice
+* Allow people to modify and adapt your ideas
+* Be kind to your future self
 :::
 
-# Why do this?
+## Reproducible source files
 
-Packages help citations
+* Every project should be fully reproducible, scripted and version controlled
+* Rmarkdown/Jupyter/Quarto with github make this easy
 
-Reproducibility helps future you, other researchers, citations, etc.
+
+## What could you contribute?
+
+* Add data to forecastingdata.org
+* Good open source python packages
+* Other online textbooks
+* Forecasting educational resources: videos, activities, exercises, slides, ...
+* Put all your research papers on arXiv or RePEc
+* Use reproducible practices and put your papers in public github repositories.
+
+## For more information
+
+ * Slides: [robjhyndman.com/seminars/fsg2002](https://robjhyndman.com/seminars/fsg2002)
+ * Source files: [github.com/robjhyndman/fsg_talk](https://github.com/robjhyndman/fsg_talk)
+
+::: {.callout-note icon="false"}
+# Find me at:
+
+`r fa("home")` [robjhyndman.com](https://robjhyndman.com)<br>
+`r fa("twitter")` [@robjhyndman](https://twitter.com/robjhyndman)<br>
+`r fa("github")` [@robjhyndman](https://github.com/robjhyndman)<br>
+`r fa("envelope")` [rob.hyndman@monash.edu](rob.hyndman@monash.edu)
+
+:::
