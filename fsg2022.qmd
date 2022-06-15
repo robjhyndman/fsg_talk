@@ -19,7 +19,6 @@ format:
 -   Textbooks
 -   Education resources
 -   Research papers
--   Reproducible source files
 
 > Social good is created when we make these resources widely and freely available.
 
@@ -298,7 +297,7 @@ users <- here::here("Analytics OTexts.org Location 20120101-20220531.csv") %>%
 
 ::: {.column width="30%"}
 
-::: {.callout-note icon="false"}
+::: {.callout-warning icon="false"}
 # Translations:
 
 - FPP2 available in **Chinese** and **Korean**
@@ -459,21 +458,22 @@ country_totals %>%
 
 ![](figs/nepfor.png)
 
-# Reproducible source files
+# Questions
 
 ::: {.callout-note icon="false"}
-## Reproducible source files
 
-* Share good practice
-* Allow people to modify and adapt your ideas
-* Be kind to your future self
+# &nbsp;
+
+* Why do I do this?
+* What could you contribute?
+
 :::
 
-## Reproducible source files
+## Why do I do this?
 
-* Every project should be fully reproducible, scripted and version controlled
-* Rmarkdown/Jupyter/Quarto with github make this easy
-
+* I want to do things that are useful and have impact.
+* Most of this activity increases citations of my papers.
+* I get a lot of consulting requests and speaking invitations because people know me from my open source work.
 
 ## What could you contribute?
 
@@ -482,7 +482,7 @@ country_totals %>%
 * Other online textbooks
 * Forecasting educational resources: videos, activities, exercises, slides, ...
 * Put all your research papers on arXiv or RePEc
-* Use reproducible practices and put your papers in public github repositories.
+* Use reproducible practices and put your papers and code in public github repositories.
 
 ## For more information
 

@@ -26,6 +26,9 @@ div.callout-note.callout-style-default .callout-caption {
 div.callout-warning.callout-style-default .callout-caption {
   background-color: #c8ada1 !important;
 }
+div.callout-note.callout-style-default .callout-body {
+  font-size: 36px !important;
+}
 
 // Remove ugly lines in tables
 .reveal table td {
