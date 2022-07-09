@@ -503,6 +503,6 @@ country_totals %>%
 `r fa("home")` [robjhyndman.com](https://robjhyndman.com)<br>
 `r fa("twitter")` [@robjhyndman](https://twitter.com/robjhyndman)<br>
 `r fa("github")` [@robjhyndman](https://github.com/robjhyndman)<br>
-`r fa("envelope")` [rob.hyndman@monash.edu](rob.hyndman@monash.edu)
+`r fa("envelope")` [rob.hyndman@monash.edu](mailto:rob.hyndman@monash.edu)
 
 :::
