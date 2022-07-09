@@ -351,6 +351,7 @@ forms <- read_csv(here::here("FPP solutions request responses - Form responses 1
       Beijing = "China",
       `Wuhan, China` = "China",
       `La Réunion (France)` = "France",
+      Drc = "Democratic Republic of Congo",
       Deutschland = "Germany",
       Guinée = "Guinea",
       `Hong Kong (China)` = "Hong Kong",
@@ -484,10 +485,9 @@ country_totals %>%
 * Put all your research papers on arXiv or RePEc
 * Use reproducible practices and put your papers and code in public github repositories.
 
-## For more information
+# For more information
 
- * Slides: [robjhyndman.com/seminars/fsg2002](https://robjhyndman.com/seminars/fsg2002)
- * Source files: [github.com/robjhyndman/fsg_talk](https://github.com/robjhyndman/fsg_talk)
+**Slides and links**: [robjhyndman.com/seminars/fsg2022](https://robjhyndman.com/seminars/fsg2022)
 
 ::: {.callout-note icon="false"}
 # Find me at:
