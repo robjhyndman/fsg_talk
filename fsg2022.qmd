@@ -9,7 +9,6 @@ format:
     slide-number: "c"
     preview-links: auto
     controls: true
-    self-contained: true
     theme: [default, custom.scss]
 ---
 
