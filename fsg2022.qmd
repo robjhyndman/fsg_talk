@@ -177,6 +177,13 @@ downloads %>%
   labs(y="Monthly downloads (thousands)", x = "Month")
 ```
 
+
+## CRAN Task View: Time series analysis
+
+<iframe width="100%" height="95%" src="https://cran.r-project.org/view=TimeSeries">
+
+</iframe>
+
 # Textbooks
 
 ::: {.callout-note icon="false"}
