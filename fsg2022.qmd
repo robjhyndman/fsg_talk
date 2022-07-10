@@ -223,7 +223,8 @@ downloads %>%
 
 ::: {.column width="70%"}
 ```{r}
-#| fig.height: 8
+#| fig.height: 6
+#| fig.width: 6
 
 # Google Analytics data for OTexts
 pageviews <- here::here("Analytics OTexts.org Audience Overview 20120101-20220531.csv") %>%
@@ -255,7 +256,8 @@ pageviews %>%
   facet_wrap(vars(variable), scales = "free_y", ncol = 1) +
   theme(legend.position = "none") +
   labs(x = "Year", y = "") +
-  scale_y_continuous(labels = scales::label_number(suffix = "K", scale = 1e-3))
+  scale_y_continuous(n.breaks=6,
+                     labels = scales::label_number(suffix = "K", scale = 1e-3))
 
 ave_pageviews <- pageviews %>%
   tail(365) %>%
